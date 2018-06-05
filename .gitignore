@@ -1,0 +1,8 @@
+# clean MultiRedis/RedisCluster tools
+./clean_msg_count
+./clean_msg_stats
+./clean_offline_msg
+./clean_offline_msgids
+
+# message info tools
+./message_info

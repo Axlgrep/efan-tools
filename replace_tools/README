@@ -1,0 +1,14 @@
+#Efan repalce tools
+
+1.首先将auto文件中的account和pwd分别替换为自己的域账号和密码
+2.将restart_efan_end.sh和restart_efan_front.sh中的user赋值为自己的域账号
+3.将efan_end_host和efan_front_host处分别填入efan集群中end和front机器的ip地址
+4.将编译好的efan_end和efan_front二进制文件拷贝到该目录下面。
+5.将end端的配置文件efan_end.conf和front端的配置文件efan_front_80.conf和efan_front_443.conf拷贝到该目录下
+6.最后分别执行restart_efan_end.sh和restart_efan_front.sh两个脚本就可以了
+
+注意事项
+1.在执行脚本之前一定要将efan集群中的配置文件先拉下来，否则此脚本会用当前目录下的配置文件对集群上的配置文件进行覆盖
+2.一般线上一台机器上都会起两个front，对外端口分别为80和443，此外每个front还会额外监听两个端口， 注意两个front监听的端口不要冲突了
+3.执行脚本之前一定要仔细检查配置文件，配置文件里要配置守护进程模式，dir, ip_dat_file, areacode_csv_file等都要仔细检查，确保有效
+

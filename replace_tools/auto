@@ -1,0 +1,16 @@
+#!/usr/bin/expect
+
+set timeout 2
+set PASSWD "password"
+
+eval spawn $argv
+
+while { 1 } {
+expect {
+"(yes/no)?" { send "yes\r" }
+"Password:" { send "$PASSWD\r" }
+"password:" { send "$PASSWD\r" }
+"account-iri:" { send "$PASSWD\r" }
+eof { break }
+}
+}
